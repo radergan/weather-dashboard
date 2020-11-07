@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <link rel="stylesheet" href="style.css">
+    
 
     <title>P. Dalton | Portfolio</title>
 
@@ -14,7 +15,7 @@
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       
-        <span style="color:white;">Patrick J. Dalton</span>
+        <span style="color:white;">Weather Dashboard</span>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list" aria-controls="navbar-list" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -24,14 +25,8 @@
             <ul class="navbar-nav">
             
             <div class="row">
-              <li class="nav-item active col-sm">
-                <a class="nav-link" href="index.html">Home</a>
-              </li>
               <li class="nav-item col-sm">
-                <a class="nav-link col-md" href="contact.html">Contact</a>
-              </li>
-              <li class="nav-item col-sm">
-                <a class="nav-link" href="portfolio.html">Portfolio</a>
+                <a class="nav-link" href="http://radergan.github.io">by PJ Dalton</a>
               </li>
             </div>
             </ul>
@@ -39,32 +34,48 @@
         
     </nav>
 
-    <div class="container">
-        <div class="row">
-            <main class="main-section col-md-12 p-5">
-              <h1 class="pb-2">About Me</h1>
-              <div class="row">
-                <section class="col-md-6 pb-4 pr-4">
-                  <p>Patrick Dalton is an I.T. professional from Chicago, Illinois. He has many years of experience working in technical support, web development and graphic design.</p>
-                  <p>Outside of work, Patrick enjoys cooking, watching not-so-good movies, creative writing, and alternative rock music of the 1990's.</p>
-
-                  <div class="pt-3">
-                    <a href="https://github.com/radergan" target="_blank" class="badge badge-success p-2">Github</a>
-
-                    <a href="https://www.linkedin.com/in/patrick-j-dalton-47bbb9192/" target="_blank" class="badge badge-primary p-2">LinkedIn</a>
+    <main class="col-md-12">
+      <div class="row main-section">
+          <section id="search-history-section" class="col p-3">
+           
+              <p>Search for a city:</p>
+              <input type="text" id="weather-city" class="form-control mb-1" placeholder="e.g. Chicago, Seattle">
+              <button id="submit-city" class="btn btn-primary">Go</button>
+            
+          </section>
+          <section id="weather-main-section" class="col-lg-9 p-3">
+                <div class="col-12" id="weather-today">
+                  
+                    <p>Weather Today:</p>
+                  
+                </div>
+                <div class="col-12">
+                  <section class="row">
+                  <div id="day-1-weather" class="weather-day col">
+                    day1
                   </div>
-
+                  <div id="day-2-weather" class="weather-day col">
+                    day2
+                  </div>
+                  <div id="day-3-weather" class="weather-day col">
+                    day3
+                  </div>
+                  <div id="day-4-weather" class="weather-day col">
+                    day4
+                  </div>
+                  <div id="day-5-weather" class="weather-day col">
+                    day5
+                  </div>
                 </section>
-                <section class="col-md-6">
-                    <img class="img-fluid" src="images/self.jpg" alt="Photo of Patrick Dalton">
-                </section>
-              </div>
-            </main>
-        </div>
-    </div>
+                </div>
+              </section>
+          </section>
+      </div>
+    </main>
+  
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 </html>
