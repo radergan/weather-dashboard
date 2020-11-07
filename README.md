@@ -1,11 +1,7 @@
-# Personal Portfolio Page
+# Weather Dashboard
 
-This is the personal portfolio site of Patrick Dalton.
+This site will display a weather dashboard for the city you type in. It will retain a localStorage list of cities previously typed.
 
-## Content
+## API
 
-Content includes index.html, portfolio.html and contact.html
-
-## Layout
-
-Layout utilizes Bootstrap 4.
+API documentation can be found here: https://openweathermap.org/
