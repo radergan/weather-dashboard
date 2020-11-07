@@ -36,12 +36,14 @@
 
     <main class="col-md-12">
       <div class="row main-section">
-          <section id="search-history-section" class="col p-3">
+          <section id="search-section" class="col p-3">
            
               <p>Search for a city:</p>
               <input type="text" id="weather-city" class="form-control mb-1" placeholder="e.g. Chicago, Seattle">
               <button id="submit-city" class="btn btn-primary">Go</button>
-            
+              
+              <section id="searched-cities" class="d-md-none d-lg-block">
+              </section>
           </section>
           <section id="weather-main-section" class="col-lg-9 p-3">
                 <div class="col-12" id="weather-today">

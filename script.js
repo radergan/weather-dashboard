@@ -3,40 +3,46 @@
 
 var apiKey = '19a41f64e9b172bc415d713ba3a84285';
 
+
 $("#submit-city").click(function(){
     var wt = $("#weather-today");
+    var sc = $("#searched-cities");
     wt.html('');
+    sc.html('');
 
     var inputCity = $("#weather-city").val();
+
     if(inputCity && inputCity != ''){
-        addNewCity(inputCity);
-        var queryURL = "//api.openweathermap.org/data/2.5/weather?q=" + inputCity + "&units=imperial&appid=" + apiKey;
+        
+        var ls_cities = JSON.parse(addNewCity(inputCity));
+
+        for(var i = 0; i < ls_cities.length; i++){
+            var c = $("<p></p>").text(ls_cities[i].city);
+            sc.prepend(c);
+        }
+
+        var queryURL = "//api.openweathermap.org/data/2.5/forecast?q=" + inputCity + "&units=imperial&appid=" + apiKey;
         var wt = $("#weather-today");
 
         $.ajax({
             url: queryURL,
             method: "GET"
             })
-            // We store all of the retrieved data inside of an object called "response"
             .then(function(response) {
-            
-            // Log the queryURL
-            console.log(queryURL);
-            
-            // Log the resulting object
-            console.log(response);
-            
-            //log the weather
-            wt.append("Temp today = ");
-            wt.append(response.main.temp);
-            console.log(response.main.temp)
+                console.log(response);
+                var cityTitle = $("<h2></h2>").text(response.city.name);
+                cityTitle.append("<img src='http://openweathermap.org/img/wn/" + response.list[0].weather[0].icon + ".png'></img>");
+                wt.append(cityTitle);
+                var tempToday = $("<p></p>").text("Temperature today: " + response.list[0].main.temp)
+                var windToday = $("<p></p>").text("Wind speed: " + response.list[0].wind.speed)
+                wt.append(tempToday, windToday);
             });
     }
 });
 
 function addNewCity (city) {
     var cities = JSON.parse(localStorage.getItem('searchedCities')) || [];
-    cities.push(city);
+    cities.push({city});
     localStorage.setItem('searchedCities', JSON.stringify(cities));
     var allCities = localStorage.getItem('searchedCities');
     for(var i = 0; i < allCities.length; i++)
