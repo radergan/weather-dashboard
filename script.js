@@ -15,10 +15,11 @@ $("#submit-city").click(function(){
     if(inputCity && inputCity != ''){
         
         var ls_cities = JSON.parse(addNewCity(inputCity));
-
-        for(var i = 0; i < ls_cities.length; i++){
-            var c = $("<p></p>").text(ls_cities[i].city);
-            sc.prepend(c);
+        var first_twelve_cities = ls_cities.slice(0,12);
+        
+        for(var i = 0; i < first_twelve_cities.length; i++){
+            var c = $("<p></p>").text(first_twelve_cities[i].city);
+            sc.append(c);
         }
 
         var queryURL = "//api.openweathermap.org/data/2.5/forecast?q=" + inputCity + "&units=imperial&appid=" + apiKey;
@@ -42,7 +43,7 @@ $("#submit-city").click(function(){
 
 function addNewCity (city) {
     var cities = JSON.parse(localStorage.getItem('searchedCities')) || [];
-    cities.push({city});
+    cities.unshift({city});
     localStorage.setItem('searchedCities', JSON.stringify(cities));
     var allCities = localStorage.getItem('searchedCities');
     for(var i = 0; i < allCities.length; i++)
