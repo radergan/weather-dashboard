@@ -23,6 +23,7 @@ $("#submit-city").click(function(){
 
         var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + inputCity + "&units=imperial&appid=" + apiKey;
         var wt = $("#weather-today");
+		var five_day_weather = [];
 
         $.ajax({
             url: queryURL,
@@ -35,6 +36,21 @@ $("#submit-city").click(function(){
 			var tempToday = $("<p></p>").text("Temperature today: " + response.list[0].main.temp)
 			var windToday = $("<p></p>").text("Wind speed: " + response.list[0].wind.speed)
 			wt.append(tempToday, windToday);
+			console.log(response.list.length);
+			
+			for (var i = 0; i < response.list.length; i++){
+				var d = new Date(response.list[i].dt * 1000);
+				var h = d.getHours();
+				if (h == 0){
+					var this_days_weather = {
+						date: d.toLocaleDateString('en-US'),
+						temp: response.list[i].main.temp
+					};
+					five_day_weather.push(this_days_weather);
+				}
+			}
+			
+			console.log(five_day_weather);
 		});
     }
 });
