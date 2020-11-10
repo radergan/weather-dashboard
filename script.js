@@ -3,7 +3,6 @@
 
 var apiKey = '19a41f64e9b172bc415d713ba3a84285';
 
-
 $("#submit-city").click(function(){
     var wt = $("#weather-today");
     var sc = $("#searched-cities");
@@ -22,22 +21,21 @@ $("#submit-city").click(function(){
             sc.append(c);
         }
 
-        var queryURL = "//api.openweathermap.org/data/2.5/forecast?q=" + inputCity + "&units=imperial&appid=" + apiKey;
+        var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + inputCity + "&units=imperial&appid=" + apiKey;
         var wt = $("#weather-today");
 
         $.ajax({
             url: queryURL,
             method: "GET"
-            })
-            .then(function(response) {
-                console.log(response);
-                var cityTitle = $("<h2></h2>").text(response.city.name);
-                cityTitle.append("<img src='http://openweathermap.org/img/wn/" + response.list[0].weather[0].icon + ".png'></img>");
-                wt.append(cityTitle);
-                var tempToday = $("<p></p>").text("Temperature today: " + response.list[0].main.temp)
-                var windToday = $("<p></p>").text("Wind speed: " + response.list[0].wind.speed)
-                wt.append(tempToday, windToday);
-            });
+        }).then(function(response) {
+			console.log(response);
+			var cityTitle = $("<h2></h2>").text(response.city.name);
+			cityTitle.append("<img src='http://openweathermap.org/img/wn/" + response.list[0].weather[0].icon + ".png'></img>");
+			wt.append(cityTitle);
+			var tempToday = $("<p></p>").text("Temperature today: " + response.list[0].main.temp)
+			var windToday = $("<p></p>").text("Wind speed: " + response.list[0].wind.speed)
+			wt.append(tempToday, windToday);
+		});
     }
 });
 
