@@ -36,7 +36,6 @@ $("#submit-city").click(function(){
 			var tempToday = $("<p></p>").text("Temperature today: " + response.list[0].main.temp)
 			var windToday = $("<p></p>").text("Wind speed: " + response.list[0].wind.speed)
 			wt.append(tempToday, windToday);
-			console.log(response.list.length);
 			
 			for (var i = 0; i < response.list.length; i++){
 				var d = new Date(response.list[i].dt * 1000);
@@ -44,13 +43,23 @@ $("#submit-city").click(function(){
 				if (h == 0){
 					var this_days_weather = {
 						date: d.toLocaleDateString('en-US'),
-						temp: response.list[i].main.temp
+						temp: response.list[i].main.temp,
+						humidity: response.list[i].main.humidity
 					};
 					five_day_weather.push(this_days_weather);
 				}
 			}
 			
-			console.log(five_day_weather);
+			var fd = $("#five-day-forecast");
+			
+			for (var i = 0; i < five_day_weather.length; i++){
+				
+				var parent_div = $("<div class='weather col'></div>");
+				parent_div.append("<p>Date: " + five_day_weather[i].date + "</p>");
+				parent_div.append("<p>Temp: " + five_day_weather[i].temp + "</p>");
+				parent_div.append("<p>Humidity: " + five_day_weather[i].humidity + "</p>");
+				fd.append(parent_div);
+			}
 		});
     }
 });
