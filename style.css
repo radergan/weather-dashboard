@@ -2,4 +2,10 @@
 #weather-main-section{height:100vh;}
 #search-section{background-color:#eee;}
 #searched-cities{margin-top:1.4em;border-top:2px solid #d6d6d6;padding-top:1.4em;}
-#weather-today{padding:1em;border:1px solid #777777;}
+#weather-today{padding:1em;border:1px solid #777777;margin-bottom:1em;}
+#five-day-forecast .weather {
+	background-color: #007bff;
+    color: white;
+    padding: 1em;
+    border-radius: 0.5em;
+}

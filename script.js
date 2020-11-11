@@ -54,7 +54,7 @@ $("#submit-city").click(function(){
 			
 			for (var i = 0; i < five_day_weather.length; i++){
 				
-				var parent_div = $("<div class='weather col'></div>");
+				var parent_div = $("<div class='weather col-md m-2'></div>");
 				parent_div.append("<p>Date: " + five_day_weather[i].date + "</p>");
 				parent_div.append("<p>Temp: " + five_day_weather[i].temp + "</p>");
 				parent_div.append("<p>Humidity: " + five_day_weather[i].humidity + "</p>");
