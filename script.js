@@ -21,7 +21,7 @@ $("#submit-city").click(function(){
             sc.append(c);
         }
 
-        var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + inputCity + "&units=imperial&appid=" + apiKey;
+        var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + inputCity + "&units=imperial&appid=" + apiKey;
         var wt = $("#weather-today");
 		var five_day_weather = [];
 
